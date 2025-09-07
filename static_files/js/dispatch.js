@@ -3,8 +3,8 @@
 // 現在はハバーサイン距離で近傍選択（教育向けで十分）
 
 class Dispatcher {
-  constructor(cars) {
-    this.cars = cars || [];
+  constructor(points) {
+    this.points = points || [];
     this.queue = []; // 割当できなかった要求を保存（将来拡張）
   }
 
@@ -14,13 +14,13 @@ class Dispatcher {
   }
 
   // 最も近い空車を返す（見つからなければ null）
-  findNearestIdle(pick) {
+  findNearestIdle(car) {
     let best = null;
     let bestD = Infinity;
-    for (const car of this.cars) {
-      if (car.busy) continue;
-      const d = Dispatcher.haversine(car.pos, pick);
-      if (d < bestD) { bestD = d; best = car; }
+    for (const p of this.points) {
+      if (p.status != "initial") continue;
+      const d = Dispatcher.haversine(car.pos, p.pos);
+      if (d < bestD) { bestD = d; best = p; }
     }
     return best;
   }
