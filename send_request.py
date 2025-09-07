@@ -35,5 +35,5 @@ def get_all_targets():
 
 if __name__ == "__main__":
     # pprint(go_to_nearest())
-    pprint(go_to_target(4))
-    # pprint(get_all_targets())
+    # pprint(go_to_target(4))
+    pprint(get_all_targets())
