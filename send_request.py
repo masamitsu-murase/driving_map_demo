@@ -14,11 +14,11 @@ def go_to_nearest():
     return response.json()
 
 
-def go_to_target():
+def go_to_target(id):
     url = f"{BASE_URL}/api/set_next_action"
     payload = {
         "action": "go_to_target",
-        "target": 1,
+        "target": id,
     }
     response = requests.post(url, json=payload)
     return response.json()
@@ -34,6 +34,6 @@ def get_all_targets():
 
 
 if __name__ == "__main__":
-    pprint(go_to_nearest())
-    # pprint(go_to_target())
+    # pprint(go_to_nearest())
+    pprint(go_to_target(4))
     # pprint(get_all_targets())

@@ -3,7 +3,8 @@
 
 // 車アイコン定義
 const carIcon = L.icon({
-  iconUrl: 'images/car.png',
+  // iconUrl: 'images/car.png',
+  iconUrl: 'images/car2.png',
   iconSize: [32, 32],   // アイコンの表示サイズ（ピクセル）
   iconAnchor: [16, 16], // アイコンの基準点（中心）
 });
@@ -13,7 +14,7 @@ class Car {
     this.map = map;
     this.id = id;
     this.pos = { lat: startLatLng.lat, lng: startLatLng.lng };
-    this.marker = L.marker([this.pos.lat, this.pos.lng], {icon: carIcon }).addTo(map);
+    this.marker = L.marker([this.pos.lat, this.pos.lng], {icon: carIcon, zIndexOffset: 1000 }).addTo(map);
     this.marker.bindTooltip(() => `Car #${this.id}`, { permanent: false });
     this.route = [];       // 座標列 [{lat,lng},...]
     this.segmentIndex = 0; // 現在のセグメントの先頭点 index
