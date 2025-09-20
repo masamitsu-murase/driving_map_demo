@@ -1,9 +1,8 @@
 {
     "servers": {
         "my-mcp-server-driving-simulator": {
-            "type": "stdio",
-            "command": "${workspaceFolder}/venv/Scripts/python.exe",
-            "args": ["${workspaceFolder}/mcp_demp.py"]
+            "type": "sse",
+            "url": "http://localhost:8080/sse"
         }
     }
 }

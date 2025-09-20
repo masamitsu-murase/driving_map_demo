@@ -54,7 +54,7 @@ def get_next_action():
     with pending_action_lock:
         start_time = time.time()
         while pending_action is None:
-            wait_time = 20 - (time.time() - start_time)
+            wait_time = 10 - (time.time() - start_time)
             if wait_time <= 0:
                 break
             pending_action_cond.wait(timeout=wait_time)

@@ -1,7 +1,7 @@
 import httpx
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Demo")
+mcp = FastMCP("Demo", port=8080)
 URL = "http://localhost:9000/api/set_next_action"
 
 
@@ -54,4 +54,4 @@ def go_to_target(target_id: int):
 
 
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="sse")
